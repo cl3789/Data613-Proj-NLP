@@ -120,8 +120,7 @@ A Github repository will be created to track the progress of the project.
 | 12/1/2021  | Create page 1 of R Shiny App (comparable word cloud for any 2 mental health groups) |
 | 12/5/2021  | Create page 2 of R Shiny App (t-SNE embedding) | 
 | 12/8/2021  | Create page 4 of R Shiny App (Trend analysis of COVID-19 related words for all groups) |
-| 12/10/2021  | Create page 3 of R Shiny App (statistical machine learning model for the prediction of 
-mental health groups using text related features) |
+| 12/10/2021  | Create page 3 of R Shiny App (statistical machine learning models) |
 | 12/12/2021  | Oral presentation run through |  
 | 12/13/2021  | Produce the Vignette |  
 | 12/13/2021  | Submission of  HTML file and .Rmd in a vignette folder on GitHub and note in Canvas |  
