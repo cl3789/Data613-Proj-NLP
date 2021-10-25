@@ -24,7 +24,10 @@ could be a potential proxy for changes in mental health needs.
 Machine learning models have been used to classify and characterize Reddit posts 
 originating from mental health subreddits. Shen et al. (2017) achieved 98% accuracy
 in separating posts on any of four different anxiety-related subreddits from posts on control 
-subreddits.
+subreddits. Hutto et al. (2014) proposed a novel model VADER for sentiment analysis of social media text. 
+They got an encourageing result from VADER model on different datasets preparing to complex machine learning models, 
+such as Support Vector Machine, Naive Bayes, and Maximum Entropy. VADER model is more quick and computationally economical,
+easiler to be inspected and understood, and transferable to other domains. 
 
 Hutto, C., & Gilbert, E. (2014). VADER: A Parsimonious Rule-Based Model for Sentiment Analysis of Social Media Text. 
 Proceedings of the International AAAI Conference on Web and Social Media, 8(1), 216-225. 
