@@ -1,0 +1,95 @@
+---
+title: "plot_wordcloud"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(wordcloud)
+library(tm)
+library(stopwords)
+library(slam)
+
+library(ggplot2)
+library(gridExtra)
+
+library(stringr)
+```
+
+
+```{r}
+plot_wordcloud <- function(group_name, time, top_n_word){
+  ## group_name: name of mental health support group
+  ## time: choose either 'pre' or 'post'
+  ## top_n_word: show top N most frequent words in post
+  
+  # select file path
+  if (time == "pre"){
+    data_path <- paste("../dataset/",group_name, "_2019_features_tfidf_256.csv", sep = "")
+  } else if (time == "post"){
+    data_path <- paste("../dataset/",group_name, "_post_features_tfidf_256.csv", sep = "")
+  } else{
+    stop("Invalid input for time. Please select from pre and post")
+  }
+  
+  data_in <- read_csv(data_path)
+  
+  ## Create a corpus of "post" column
+  myCorpus<-VCorpus(VectorSource(data_in$post))
+  
+  ## Preprocess the text
+  cleaned_text <- myCorpus %>%
+    tm_map(content_transformer(tolower)) %>%
+    tm_map(removeNumbers) %>%
+    tm_map(removeWords, stopwords(language = "en",source = "stopwords-iso")) %>%
+    tm_map(removePunctuation) %>%
+    tm_map(stripWhitespace) 
+  
+  # Convert VCorpus to matrix
+  dtm <- TermDocumentMatrix(cleaned_text) 
+  matrix <- as.matrix(dtm) 
+  
+  # Compute word frequency
+  words <- sort(rowSums(matrix),decreasing=TRUE) 
+  df_word <- data.frame(word = names(words),freq=words)
+  
+  # for reproducibility 
+  set.seed(2021) 
+  
+  title <- paste(group_name, time, "pandemic")
+  
+  # Set wordcloud plot
+  layout(matrix(c(1, 2), nrow=2), heights=c(1, 5))
+  par(mar=rep(0, 4))
+  plot.new()
+  text(x=0.5, y=0.5, title)
+
+  wordcloud(words = df_word$word, 
+            freq = df_word$freq, 
+            min.freq = 50, max.words=top_n_word, 
+            random.order=FALSE, rot.per=0.35,            
+            colors=brewer.pal(8, "Spectral"), 
+            main = "Title")
+  
+  #return(plt_cloud)
+  
+}
+```
+
+
+Examples
+
+```{r}
+plot_wordcloud("socialanxiety","pre", 100)
+```
+
+
+```{r}
+plot_wordcloud("lonely","pre", 100)
+```
+
+
