@@ -24,7 +24,9 @@ could be a potential proxy for changes in mental health needs.
 Machine learning models have been used to classify and characterize Reddit posts 
 originating from mental health subreddits. Shen et al. (2017) achieved 98% accuracy
 in separating posts on any of four different anxiety-related subreddits from posts on control 
-subreddits.
+subreddits. Hutto & Gilbert (2014) recommend using the VADER lexicon for sentiment analysis, 
+the process of determining whether a text entry's overall message is positive, negative or neutral, 
+for social media posts.
 
 Hutto, C., & Gilbert, E. (2014). VADER: A Parsimonious Rule-Based Model for Sentiment Analysis of Social Media Text. 
 Proceedings of the International AAAI Conference on Web and Social Media, 8(1), 216-225. 
