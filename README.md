@@ -27,6 +27,10 @@ in separating posts on any of four different anxiety-related subreddits from pos
 subreddits. Hutto & Gilbert (2014) recommend using the VADER lexicon for sentiment analysis, 
 the process of determining whether a text entry's overall message is positive, negative or neutral, 
 for social media posts.
+They got an encourageing result from VADER model on different datasets preparing to complex machine learning models, 
+such as Support Vector Machine, Naive Bayes, and Maximum Entropy. VADER model is more quick and computationally economical,
+easiler to be inspected and understood, and transferable to other domains. 
+
 
 Hutto, C., & Gilbert, E. (2014). VADER: A Parsimonious Rule-Based Model for Sentiment Analysis of Social Media Text. 
 Proceedings of the International AAAI Conference on Web and Social Media, 8(1), 216-225. 
